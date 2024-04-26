@@ -26,7 +26,9 @@ public abstract class AbstractCheckXmlAttributes extends DefaultTask {
 
   protected Validator validator;
 
-  @InputFiles @SkipWhenEmpty protected FileTree files;
+  @InputFiles
+  @SkipWhenEmpty
+  protected FileTree files;
 
   protected List<String> errorList = new ArrayList<>();
 
@@ -87,8 +89,10 @@ public abstract class AbstractCheckXmlAttributes extends DefaultTask {
   }
 
   protected void addErrorsProperlyToErrorList(List<String> errorList, Exception error) {
-    if (!error.getLocalizedMessage().startsWith("cvc-elt.1.a")) {
-      errorList.addAll(List.of(error.toString().split(";")));
+    String errorMessage = error.getMessage();
+    if (errorMessage != null && !errorMessage.startsWith("cvc-elt.1.a")) {
+      errorList.add(errorMessage);
     }
   }
+
 }
