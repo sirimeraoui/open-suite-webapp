@@ -48,7 +48,6 @@ dependencies {
   gradle.appModules.each { dir ->
     implementation project(":modules:$dir.name")
   }
-  classpath 'com.axelor:axelor-gradle:7.0.7'
 }
 
 apply from: 'gradle/style.gradle'

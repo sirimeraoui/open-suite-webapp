@@ -20,7 +20,6 @@ allprojects {
 
   group = 'com.axelor.apps'
   version = '8.0.5'
-  
 
   java {
     toolchain {
@@ -48,7 +47,6 @@ dependencies {
   gradle.appModules.each { dir ->
     implementation project(":modules:$dir.name")
   }
-  classpath 'com.axelor:axelor-gradle:7.0.7'
 }
 
 apply from: 'gradle/style.gradle'
